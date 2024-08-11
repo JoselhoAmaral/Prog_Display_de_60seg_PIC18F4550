@@ -1,0 +1,86 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004     @INTERRUPT_AREA
+005     @INTERRUPT_AREA
+006     @INTERRUPT_AREA
+007     @INTERRUPT_AREA
+008     @INTERRUPT_AREA
+009     @INTERRUPT_AREA
+00A     @INTERRUPT_AREA
+00B     @INTERRUPT_AREA
+00C     @INTERRUPT_AREA
+00D     @INTERRUPT_AREA
+00E     @INTERRUPT_AREA
+00F     @INTERRUPT_AREA
+010     @INTERRUPT_AREA
+011     @INTERRUPT_AREA
+012     @INTERRUPT_AREA
+013     @INTERRUPT_AREA
+014     @INTERRUPT_AREA
+015     @INTERRUPT_AREA
+016     funcao_contador.miliSegundo
+017     funcao_contador.unidade
+018     funcao_contador.dezena
+019.0   funcao_contador.flag
+01A-023 funcao_contador.digito
+024.0   funcao_contador.opcao
+025     funcao_contador.@SCRATCH1
+026     funcao_contador.@SCRATCH2
+F83     PSP_DATA
+FB4.6   C1OUT
+FB4.7   C2OUT
+FBB     CCP_2_LOW
+FBB     CCP_2
+FBC     CCP_2_HIGH
+FBE     CCP_1
+FBE     CCP_1_LOW
+FBF     CCP_1_HIGH
+FE1-FE2 @READ_PACKED_MEMORY.P1
+FE1-FE2 @WRITE_PACKED_MEMORY.P2
+FE9-FEA @WRITE_PROGRAM_MEMORY.P1
+FE9-FEA @READ_PROGRAM_MEMORY.P2
+FE9-FEA @READ_PACKED_MEMORY.P3
+FE9-FEA @WRITE_PACKED_MEMORY.P4
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P1
+FF6-FF8 @READ_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+000096  funcao_contador
+000182  MAIN
+000182  @cinit1
+000196  @cinit2
+
+Project Directory:
+    C:\Users\Joselho Amaral\Documents\IFCE\S8 - Eng. Automação e Controle\Microcontroladores\Atividade 06 - contagem com time\
+
+Project Files:
+    contagem_display_com_timer1.c                           [06-jul-21 22:50  CRC=13156C37]
+    ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18F4550.h [12-nov-13 14:35  CRC=5337E248]
+
+Source signature=B98530C7
+
+Units:
+    contagem_display_com_timer1 (main)
+
+Compiler Settings:
+    Processor:      PIC18F4550
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   contagem_display_com_timer1.xsym
+    Errors:      contagem_display_com_timer1.err
+    Ext Symbols: contagem_display_com_timer1.esym
+    INHX32:      contagem_display_com_timer1.hex
+    Symbols:     contagem_display_com_timer1.sym
+    List:        contagem_display_com_timer1.lst
+    Debug/COFF:  contagem_display_com_timer1.cof
+    Project:     contagem_display_com_timer1.ccspjt
+    Call Tree:   contagem_display_com_timer1.tre
+    Statistics:  contagem_display_com_timer1.STA

@@ -1,0 +1,47 @@
+
+ROM used:   444/32768 (1%)
+            444/32768 (1%) including unused fragments
+
+            0.5 Average locations per line
+            10.1 Average locations per statement
+
+RAM used:   26/2048 (1%) at main() level
+            39/2048 (2%) worst case
+
+Stack used: 1 worst case (0 in main + 1 for interrupts)
+Stack size: 31
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   85    44 100  contagem_display_com_timer1.c
+  837     0   0  ..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18F4550.h
+----- -----
+  922    44 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0    236  27    2  1403 10.7  funcao_contador
+0     62   7    0   186  2.3  MAIN
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               2
+    Statements              44
+    Comments                167
+    Volume (V)              1751
+    Difficulty (D)          12.9
+    Effort to implement (E) 22511
+    Time to implement (T)   21 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   8
+    Maintainability (MI)    135
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     4  0  
+00004-00006     0  4  
+00008-00094   142  0  
+00096-07FFE   298  32320  
+
+
+

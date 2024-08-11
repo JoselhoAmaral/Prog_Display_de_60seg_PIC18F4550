@@ -1,0 +1,19 @@
+[PROJECT]
+Target=contagem_display_com_timer1.hex
+Processor_Text=PIC18F4550
+CCSVersion=5.015
+Compiler=PCH
+[Target Data]
+FileList=contagem_display_com_timer1.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\
+[contagem_display_com_timer1.c]
+Type=4
+[mru-list]
+1=contagem_display_com_timer1.c
+[Opened Files]
+1=contagem_display_com_timer1.c
+2=
+[Units]
+Count=1
+1=contagem_display_com_timer1 (main)

@@ -1,0 +1,68 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004     cicloDezena
+005     cicloUnidade
+006-00F digito
+010     main.contGeral
+011     main.contador
+012     main.cont
+013     @delay_ms1.P1
+013     main.@SCRATCH1
+F83     PSP_DATA
+FB4.6   C1OUT
+FB4.7   C2OUT
+FBB     CCP_2_LOW
+FBB     CCP_2
+FBC     CCP_2_HIGH
+FBE     CCP_1
+FBE     CCP_1_LOW
+FBF     CCP_1_HIGH
+FE1-FE2 @READ_PACKED_MEMORY.P1
+FE1-FE2 @WRITE_PACKED_MEMORY.P2
+FE9-FEA @WRITE_PROGRAM_MEMORY.P1
+FE9-FEA @READ_PROGRAM_MEMORY.P2
+FE9-FEA @WRITE_PACKED_MEMORY.P3
+FE9-FEA @READ_PACKED_MEMORY.P4
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P1
+FF6-FF8 @READ_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+000004  @delay_ms1
+00002A  @cinit1
+00002A  main
+00003E  @cinit2
+
+Project Directory:
+    C:\Users\Joselho Amaral\Documents\Joselho\IFCE\S8 - Eng. Automação e Controle\Microcontroladores\Atividade 05 - Display (PIC SimLab)\
+
+Project Files:
+    Atividade_display.c                                     [23-jun-21 20:40  CRC=4F95F4E6]
+    ..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18F4550.h [12-nov-13 14:35  CRC=5337E248]
+
+Source signature=F605B976
+
+Units:
+    Atividade_display (main)
+
+Compiler Settings:
+    Processor:      PIC18F4550
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   Atividade_display.xsym
+    Errors:      Atividade_display.err
+    Ext Symbols: Atividade_display.esym
+    INHX32:      Atividade_display.hex
+    Symbols:     Atividade_display.sym
+    List:        Atividade_display.lst
+    Debug/COFF:  Atividade_display.cof
+    Project:     Atividade_display.ccspjt
+    Call Tree:   Atividade_display.tre
+    Statistics:  Atividade_display.STA

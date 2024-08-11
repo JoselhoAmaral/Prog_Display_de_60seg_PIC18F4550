@@ -1,0 +1,45 @@
+
+ROM used:   294/32768 (1%)
+            294/32768 (1%) including unused fragments
+
+            0.3 Average locations per line
+            7.9 Average locations per statement
+
+RAM used:   17/2048 (1%) at main() level
+            20/2048 (1%) worst case
+
+Stack used: 1 worst case (1 in main + 0 for interrupts)
+Stack size: 31
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   83    37 100  Atividade_display.c
+  837     0   0  ..\..\..\..\..\..\..\..\Program Files (x86)\PICC\Devices\18F4550.h
+----- -----
+  920    37 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     38   6    1             @delay_ms1
+0    252  43    1  1048  8.0  main
+ Inline         0             @cinit1
+
+Program metrics:
+    Functions               1
+    Statements              37
+    Comments                176
+    Volume (V)              1054
+    Difficulty (D)          7.8
+    Effort to implement (E) 8190
+    Time to implement (T)   8 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   8
+    Maintainability (MI)    124
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     4  0  
+00004-07FFE   290  32474  
+
+
+

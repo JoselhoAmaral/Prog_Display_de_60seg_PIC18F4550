@@ -1,0 +1,19 @@
+[PROJECT]
+Target=Atividade_display.hex
+Processor_Text=PIC18F4550
+CCSVersion=5.015
+Compiler=PCH
+[Target Data]
+FileList=Atividade_display.c
+[Directories]
+Include=C:\Program Files (x86)\PICC\Devices\;C:\Program Files (x86)\PICC\Drivers\
+[Atividade_display.c]
+Type=4
+[mru-list]
+1=Atividade_display.c
+[Opened Files]
+1=..\Atividade Extra\Atividade_Relogio.c
+2=
+[Units]
+Count=1
+1=Atividade_display (main)

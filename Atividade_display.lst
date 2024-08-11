@@ -1,0 +1,259 @@
+CCS PCH C Compiler, Version 5.015, 5967               25-jun-21 11:22
+
+               Filename:   C:\Users\Joselho Amaral\Documents\Joselho\IFCE\S8 - Eng. Automação e Controle\Microcontroladores\Atividade 05 - Display (PIC SimLab)\Atividade_display.lst
+
+               ROM used:   294 bytes (1%)
+                           Largest free fragment is 32474
+               RAM used:   17 (1%) at main() level
+                           20 (1%) worst case
+               Stack used: 1 locations
+               Stack size: 31
+
+*
+0000:  GOTO   002A
+.................... #include<18F4550.h>            
+.................... //////////// Standard Header file for the PIC18F4550 device //////////////// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... ////        (C) Copyright 1996, 2013 Custom Computer Services          //// 
+.................... //// This source code may only be used by licensed users of the CCS C  //// 
+.................... //// compiler.  This source code may only be distributed to other      //// 
+.................... //// licensed users of the CCS C compiler.  No other use, reproduction //// 
+.................... //// or distribution is permitted without written permission.          //// 
+.................... //// Derivative programs created using this software in object code    //// 
+.................... //// form are not restricted in any way.                               //// 
+.................... /////////////////////////////////////////////////////////////////////////// 
+.................... #device PIC18F4550 
+....................  
+.................... #list 
+....................  
+.................... #fuses HS, NOWDT, CPUDIV1 
+.................... #use delay (clock=20MHz) 
+0004:  CLRF   FEA
+0006:  MOVLW  13
+0008:  MOVWF  FE9
+000A:  MOVF   FEF,W
+000C:  BZ    0028
+000E:  MOVLW  06
+0010:  MOVWF  01
+0012:  CLRF   00
+0014:  DECFSZ 00,F
+0016:  BRA    0014
+0018:  DECFSZ 01,F
+001A:  BRA    0012
+001C:  MOVLW  7B
+001E:  MOVWF  00
+0020:  DECFSZ 00,F
+0022:  BRA    0020
+0024:  DECFSZ FEF,F
+0026:  BRA    000E
+0028:  RETURN 0
+....................  
+.................... int cicloDezena = 0; 
+.................... int cicloUnidade = 0; 
+....................  
+.................... /*Matriz de 10 posições contendo o valor a ser enviado para a porta D a fim de 
+....................    mostrar o dígito referente nos displays */ 
+.................... int digito[10] = 
+....................                {0b00111111,    //Dígito 0 
+....................                 0b00000110,    //Dígito 1 
+....................                 0b01011011,    //Dígito 2 
+....................                 0b01001111,    //Dígito 3 
+....................                 0b01100110,    //Dígito 4 
+....................                 0b01101101,    //Dígito 5 
+....................                 0b01111101,    //Dígito 6 
+....................                 0b00000111,    //Dígito 7 
+....................                 0b01111111,    //Dígito 8 
+....................                 0b01101111     //Dígito 9 
+....................                }; 
+....................                 
+.................... void main() 
+002A:  CLRF   FF8
+002C:  BCF    FD0.7
+002E:  CLRF   04
+0030:  CLRF   05
+0032:  MOVF   FC1,W
+0034:  ANDLW  C0
+0036:  IORLW  0F
+0038:  MOVWF  FC1
+003A:  MOVLW  07
+003C:  MOVWF  FB4
+003E:  MOVLW  3F
+0040:  MOVWF  06
+0042:  MOVLW  06
+0044:  MOVWF  07
+0046:  MOVLW  5B
+0048:  MOVWF  08
+004A:  MOVLW  4F
+004C:  MOVWF  09
+004E:  MOVLW  66
+0050:  MOVWF  0A
+0052:  MOVLW  6D
+0054:  MOVWF  0B
+0056:  MOVLW  7D
+0058:  MOVWF  0C
+005A:  MOVLW  07
+005C:  MOVWF  0D
+005E:  MOVLW  7F
+0060:  MOVWF  0E
+0062:  MOVLW  6F
+0064:  MOVWF  0F
+.................... { 
+.................... port_b_pullups(true);   // Liga os pull ups 
+0066:  BCF    FF1.7
+.................... output_d(0);            // Desliga todas as portas D 
+0068:  CLRF   F95
+006A:  CLRF   F8C
+.................... SET_TRIS_B(0xFF); 
+006C:  MOVLW  FF
+006E:  MOVWF  F93
+.................... SET_TRIS_D(0x00); 
+0070:  MOVLW  00
+0072:  MOVWF  F95
+....................  
+....................  
+.................... while(true){ 
+....................  
+.................... delay_ms(1); //Caso retire o delay_ms(1), o código inicia sem apertar B0. 
+0074:  MOVLW  01
+0076:  MOVWF  13
+0078:  RCALL  0004
+....................  
+.................... // Verifica se o botão está apertado e caso não, não permite a continuação do código. 
+....................    if(input(pin_b0) == 0){ 
+007A:  BSF    F93.0
+007C:  BTFSC  F81.0
+007E:  BRA    011E
+.................... // Parte do código onde verifica se a contagem chegou a 47. 
+....................       for(int contGeral = 1; contGeral <= 47; contGeral++){ 
+0080:  MOVLW  01
+0082:  MOVWF  10
+0084:  MOVF   10,W
+0086:  SUBLW  2F
+0088:  BNC   0118
+....................        
+.................... // Ciclo de repetição para fazer durar 1s = 250*4ms 
+....................          for(int contador = 1; contador <= 250; contador++){ 
+008A:  MOVLW  01
+008C:  MOVWF  11
+008E:  MOVF   11,W
+0090:  SUBLW  FA
+0092:  BNC   0108
+....................  
+.................... // Esse if reseta a contagem se for apertado o botão B0. 
+....................             if(input(pin_b0) == 0){   
+0094:  BSF    F93.0
+0096:  BTFSC  F81.0
+0098:  BRA    00A0
+....................                contGeral = 0; 
+009A:  CLRF   10
+....................                cicloUnidade = 0; 
+009C:  CLRF   05
+....................                cicloDezena = 0; 
+009E:  CLRF   04
+....................             } 
+....................     
+.................... // Ciclo de repetição do dos 2 display LED's. duração 4ms (2ms + 2ms). 
+....................             for (int cont = 1; cont <= 2; cont++){ 
+00A0:  MOVLW  01
+00A2:  MOVWF  12
+00A4:  MOVF   12,W
+00A6:  SUBLW  02
+00A8:  BNC   0104
+....................                switch(cont) 
+00AA:  MOVF   12,W
+00AC:  XORLW  01
+00AE:  BZ    00B6
+00B0:  XORLW  03
+00B2:  BZ    00DC
+00B4:  BRA    0100
+....................                {                       
+....................                      case 1: OUTPUT_D(digito[cicloDezena]); 
+00B6:  CLRF   03
+00B8:  MOVF   04,W
+00BA:  ADDLW  06
+00BC:  MOVWF  FE9
+00BE:  MOVLW  00
+00C0:  ADDWFC 03,W
+00C2:  MOVWF  FEA
+00C4:  MOVFF  FEF,13
+00C8:  CLRF   F95
+00CA:  MOVFF  13,F8C
+....................                              OUTPUT_A(0b00010000); 
+00CE:  CLRF   F92
+00D0:  MOVLW  10
+00D2:  MOVWF  F89
+....................                              delay_ms(2); 
+00D4:  MOVLW  02
+00D6:  MOVWF  13
+00D8:  RCALL  0004
+....................                      break;  
+00DA:  BRA    0100
+....................                       
+....................                      case 2: OUTPUT_D(digito[cicloUnidade]); 
+00DC:  CLRF   03
+00DE:  MOVF   05,W
+00E0:  ADDLW  06
+00E2:  MOVWF  FE9
+00E4:  MOVLW  00
+00E6:  ADDWFC 03,W
+00E8:  MOVWF  FEA
+00EA:  MOVFF  FEF,13
+00EE:  CLRF   F95
+00F0:  MOVFF  13,F8C
+....................                              OUTPUT_A(0b00100000); 
+00F4:  CLRF   F92
+00F6:  MOVLW  20
+00F8:  MOVWF  F89
+....................                              delay_ms(2); 
+00FA:  MOVLW  02
+00FC:  MOVWF  13
+00FE:  RCALL  0004
+....................                      break; 
+....................                } 
+0100:  INCF   12,F
+0102:  BRA    00A4
+....................             } 
+0104:  INCF   11,F
+0106:  BRA    008E
+....................          }   
+....................       cicloUnidade++; 
+0108:  INCF   05,F
+....................        
+.................... // Reseta o ciclo unidade quando chega a 10 e adiciona mais 1 ao ciclo dezena. 
+....................          if (cicloUnidade == 10){ 
+010A:  MOVF   05,W
+010C:  SUBLW  0A
+010E:  BNZ   0114
+....................             cicloUnidade = 0; 
+0110:  CLRF   05
+....................             cicloDezena++;  
+0112:  INCF   04,F
+....................          } 
+0114:  INCF   10,F
+0116:  BRA    0084
+....................       } 
+.................... // Ao termino da contagem, a saída do grupo D é desligada. 
+....................       output_d(0);   // Desliga todas as portas D 
+0118:  CLRF   F95
+011A:  CLRF   F8C
+....................    } 
+011C:  BRA    0122
+.................... // Caso o B0 não esteja apertado, a saida do grupo D será desligada. 
+....................    else{ 
+....................       output_d(0);   // Desliga todas as portas D 
+011E:  CLRF   F95
+0120:  CLRF   F8C
+....................    } 
+0122:  BRA    0074
+....................    } 
+.................... } 
+0124:  SLEEP 
+
+Configuration Fuses:
+   Word  1: CC27   PLL12 CPUDIV1 USBDIV HS FCMEN IESO
+   Word  2: 1E3E   PUT BROWNOUT BORV21 VREGEN NOWDT WDT32768
+   Word  3: 8700   CCP2C1 PBADEN LPT1OSC MCLR
+   Word  4: 00A1   STVREN NOLVP ICSP2 NOXINST NODEBUG
+   Word  5: C00F   NOPROTECT NOCPB NOCPD
+   Word  6: E00F   NOWRT NOWRTC NOWRTB NOWRTD
+   Word  7: 400F   NOEBTR NOEBTRB
